@@ -1,17 +1,25 @@
 require('dotenv').config({
   path: `.env`,
-})
+});
 
 module.exports = {
   plugins: [
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-emotion',
     {
-      resolve: 'gatsby-source-prismic',
+      resolve: `gatsby-source-filesystem`,
       options: {
-        repositoryName: 'resume-test',
-        accessToken: process.env.API_KEY,
+        name: `pages`,
+        path: `${__dirname}/src/pages/`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        defaultLayouts: {
+          default: require.resolve(`./src/components/Layout.jsx`),
+        },
       },
     },
   ],
-}
+};

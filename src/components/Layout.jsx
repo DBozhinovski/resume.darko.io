@@ -1,6 +1,7 @@
-import { css, Global } from '@emotion/core'
-import React from 'react'
-import Helmet from 'react-helmet'
+import { css, Global } from '@emotion/core';
+import React from 'react';
+import Helmet from 'react-helmet';
+import container from './container';
 
 const globalStyle = css`
   html,
@@ -133,19 +134,20 @@ const globalStyle = css`
   textarea {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Ubuntu, Cantarell, Roboto, Helvetica, Arial, Noto Sans,
-      sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    //font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Ubuntu, Cantarell, Roboto, Helvetica, Arial, Noto Sans,
+    //  sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    font-family: 'Open Sans';
   }
-`
+`;
 
 const Layout = ({ children }) => (
   <div>
     <Global styles={globalStyle} />
     <Helmet>
-      <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" />
+      <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" />
     </Helmet>
-    {children}
+    <div css={container}>{children}</div>
   </div>
-)
+);
 
-export default Layout
+export default Layout;
